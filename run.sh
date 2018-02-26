@@ -1,4 +1,10 @@
 #!/bin/bash
 
-docker run -p 85:80 --rm -d nginx 
+docker run \
+	--publish 85:80 \
+	--volume $(PWD)/webroot:/usr/share/nginx/html \
+	--rm \
+	--detach \
+	nginx 
+
 
