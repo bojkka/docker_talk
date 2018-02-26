@@ -19,3 +19,12 @@ services:
     depends_on:
       - php
 
+  mysql:
+    image: mysql
+    volumes:
+      - "./mysql/data:/var/lib/mysql"
+      - "./mysql/initial.sql:/docker-entrypoint-initdb.d/initial.sql"
+    container_name: mysql
+    environment:
+      "MYSQL_ROOT_PASSWORD": "secret"
+
